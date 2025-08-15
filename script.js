@@ -99,4 +99,63 @@ function zoomToHome() {
 function markVisited(btn) {
   btn.classList.toggle('visited');
   btn.textContent = btn.classList.contains('visited') ? 'Visited' : 'Mark as Visited';
-}
+  // Create map
+  const map = L.map('map', {
+      center: [28.6139, 77.2090], // Delhi center
+      zoom: 12
+    });
+    
+    // Satellite view
+    const satelliteLayer = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+    
+    
+    // Normal view
+    const normalLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap contributors'
+        });
+        
+        // Layer control
+        L.control.layers({
+              "Satellite": satelliteLayer,
+              "Normal": normalLayer
+            }).addTo(map);
+            
+            // Example places
+            const places = [
+                  {
+                        name: "India Gate",
+                        description: "A famous war memorial in Delhi.",
+                        image: "india_gate.jpg",
+                        coords: [28.6129, 77.2295]
+                      },
+                      {
+                            name: "Red Fort",
+                            description: "Historic fort in Delhi.",
+                            image: "red_fort.jpg",
+                            coords: [28.6562, 77.2410]
+                          }
+                        ];
+                        
+                        // Add markers + cards
+                        places.forEach(place => {
+                              L.marker(place.coords).addTo(map)
+                                .bindPopup(`<b>${place.name}</b><br>${place.description}`);
+                            
+                              const card = document.createElement("div");
+                              card.classList.add("card");
+                            
+                              card.innerHTML = `
+                                <img src="${place.image}" alt="${place.name}">
+                                <div class="card-content">
+                                  <h3>${place.name}</h3>
+                                  <p>${place.description}</p>
+                                  <button>Mark Visited</button>
+                                </div>
+                              `;
+                            
+                              document.getElementById("places").appendChild(card);
+                            });
+                            
+                        }
