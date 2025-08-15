@@ -176,7 +176,7 @@ button. visited {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 5px 8px;
+    padding: 3px 4px;
     border-radius: 4px;
     font-size: 12px;
     cursor: pointer;
@@ -185,6 +185,7 @@ button. visited {
 .card button.visited {
     background-color: #28a745;
 }
+
 
 
 
