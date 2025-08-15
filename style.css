@@ -63,4 +63,82 @@ button {
 button.visited {
   background: green;
 }
+/* 📱 Mobile View Fix */
+@media (max-width: 600px) {
+  #map {
+    height: 300px;
+  }
+  .card {
+    width: 90%;
+  }
+}
+
+
+/* 📱 Mobile View Fix */
+@media (max-width: 600px) {
+  #map {
+    height: 300px;
+  }
+  .card {
+    width: 90%;
+  }
+}
+#places {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+    padding: 10px;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card img {
+    width: 80%;
+    height: 80px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 5px;
+}
+
+.card h3 {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.card p {
+    font-size: 10px;
+    color: #666;
+}
+
+.card button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 3px 4px;
+    border-radius: 4px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.card button.visited {
+    background-color: #28a745;
+}
+
+
+
+
+
+
+
+
+
+
 
